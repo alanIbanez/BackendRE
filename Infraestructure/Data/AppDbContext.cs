@@ -27,7 +27,20 @@ public class AppDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
-        modelBuilder.Entity<Device>().ToTable("Device");
+        
+        // Map entities to correct PostgreSQL table names (lowercase, handle reserved words)
+        modelBuilder.Entity<Person>().ToTable("person");
+        modelBuilder.Entity<PreceptorType>().ToTable("preceptortype");
+        modelBuilder.Entity<ResidentType>().ToTable("residenttype");
+        modelBuilder.Entity<Role>().ToTable("role");
+        modelBuilder.Entity<Shift>().ToTable("shift");
+        modelBuilder.Entity<User>().ToTable("users"); // "user" is reserved in PostgreSQL
+        modelBuilder.Entity<Preceptor>().ToTable("preceptor");
+        modelBuilder.Entity<Tutor>().ToTable("tutor");
+        modelBuilder.Entity<Guard>().ToTable("guard");
+        modelBuilder.Entity<Resident>().ToTable("resident");
+        modelBuilder.Entity<Event>().ToTable("event");
+        modelBuilder.Entity<Device>().ToTable("device");
 
         // Configuraciones adicionales de relaciones si es necesario
         modelBuilder.Entity<User>()
