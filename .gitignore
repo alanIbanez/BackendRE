@@ -1,0 +1,22 @@
+
+# Carpetas de compilación
+bin/
+obj/
+
+# Archivos temporales
+*.dll
+*.pdb
+*.cache
+*.log
+
+# Configuración de usuario
+.vs/
+*.user
+*.suo
+
+# Paquetes NuGet
+packages/
+*.nupkg
+
+# Otros
+*.DS_Store
