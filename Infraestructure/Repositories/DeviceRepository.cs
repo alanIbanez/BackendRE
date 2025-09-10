@@ -31,7 +31,7 @@ public class DeviceRepository : GenericRepository<Device>, IDeviceRepository
         return await _context.Devices
             .FromSqlInterpolated($@"
             SELECT * 
-            FROM Devices 
+            FROM device 
             WHERE DeviceId = {deviceId} 
             AND Active = true")
             .FirstOrDefaultAsync();
